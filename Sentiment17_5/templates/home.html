@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color:   #b3d1ff;
+  padding: 15px;
+  text-align: center;
+  font-size:50px;
+  color: indigo;
+  text-shadow: 1px 1px;
+}
+
+nav {
+  float: left;
+  width: 25%;
+  height: 480px; 
+  background:  #e6ffe6;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 75%;
+  background-color: white;
+  height: auto;
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+footer {
+  background-color: #708090;
+  padding: 10px;
+  color: #3333ff	;
+   opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+/* Set a style for the submit button */
+.btn {
+
+  background-color: dodgerblue;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Sentiment Analysis Vietnameses</h1>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      
+	  <li class="list-group-item list-group-item-light"><a href="#">Home</a></li>
+      <li class="list-group-item list-group-item-light"><a href="#">Introduction</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <div >
+		<form method="post">
+		<div >
+			<br>
+			<label>Nhập một đoạn văn Tiếng Việt (Paragraph Vietnamese):</label>
+			<br>
+
+			<br>
+			<input type = "text" class="form-control" style = "width:60%;padding: 10px;" placeholder = "Input comment" name="comment" value="{{request.form.comment}}">
+			</div>
+		<br>
+		<div >
+			<input  class="btn btn-success" type = "submit" value = "Analysis">   
+		</div>
+		</form>
+		<br>
+		<div >
+			{% if result==1 %}
+				<p style="margin-left: 100px;" ><strong>Result:</strong> Positive </p>
+				<div align="center">
+				 <img  src= "{{ url_for('static',filename =  'images/photo/posi.png') }}" alt="Hình ảnh " width="150" height="150"/>  
+				</div>
+			{% elif result==0 %}
+				<p style="margin-left: 100px;"><strong>Result:</strong> Negative </p> 
+				<div align="center">
+				<img  src= "{{ url_for('static',filename =  'images/photo/nega.png') }}" alt="Hình ảnh " width="150" height="150"/>  
+				</div>
+			{% endif %}
+			{% if error %}
+				<p><strong>Error:</strong>{{error}} </p>
+			{% endif %}
+
+		</div>
+      
+    </div>
+
+	</article>
+</section>
+
+<footer>
+<div style="margin-left: 50px;">
+<h4 style="margin-left: 20px;">Tài liệu tham khảo:</h4>
+<a href="https://monkeylearn.com/sentiment-analysis/">Sentiment analysis - Monkeylearn</a>
+<br>
+<a href="https://streetcodevn.com/">Demo Sentiment Analysis Vietnamese - SVC</a>
+<br>
+<a href="https://towardsdatascience.com/sentiment-analysis-with-python-part-1-5ce197074184">Sentiment analysis with python - Towardsdatascience</a>
+<br>
+<a href="https://viblo.asia/p/phan-tich-phan-hoi-khach-hang-hieu-qua-voi-machine-learningvietnamese-sentiment-analysis-Eb85opXOK2G">Phan tich phan hoi khach hang - Viblo</a>
+</div>
+</footer>
+
+</body>
+</html>

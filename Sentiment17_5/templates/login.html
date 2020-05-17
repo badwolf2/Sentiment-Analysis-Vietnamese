@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+   
+<style>
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color:   #b3d1ff
+		;
+  padding: 10px;
+  text-align: center;
+  font-size: 30px;
+  color: indigo;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 75%;
+  background-color: white;
+  height: 400px; 
+  margin-left: 200px;
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+footer {
+  background-color: #708090;
+  padding: 10px;
+  color: #3333ff	;
+   opacity: 0.8;
+}
+
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 70%;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+
+.btn:hover {
+  opacity: 1;
+}
+.btn {
+
+  background-color: dodgerblue;
+  color: white;
+  padding: 12px 35px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Sentiment Analysis Vietnameses</h1>
+</header>
+
+<section>
+<br>
+  <h1 align="center"  >Login</h1>
+  <article>
+   <div class="input-container">
+   
+	</div>
+    <div >
+      
+      <form method="post" >
+		
+        <div class="input-container">
+        <i class="fa fa-user icon"></i>
+        <input type = "text" class="input-field" placeholder = "Username" name="username" value="{{request.form.username}}">
+        </div>
+        <br>
+        <div class="input-container" >
+          <i class="fa fa-key icon"></i>
+          <input type = "password" class="input-field" placeholder = "Password" name="password" value = "{{request.form.password}}">
+        </div>
+        
+        <br>
+        <div>
+            <input class="btn btn-success" type = "submit" value = "Login">   
+        </div> 
+		
+      </form>
+      
+      {% if error %}
+      <p>
+        <strong>Error:</strong>{{error}}
+      </p>
+      {% endif %}
+	 
+    </div>
+
+	</article>
+</section>
+
+<footer>
+<div style="margin-left: 50px;">
+<h4 style="margin-left: 20px;">Tài liệu tham khảo:</h4>
+<a href="https://monkeylearn.com/sentiment-analysis/">Sentiment analysis - Monkeylearn</a>
+<br>
+<a href="https://streetcodevn.com/">Demo Sentiment Analysis Vietnamese - SVC</a>
+<br>
+<a href="https://towardsdatascience.com/sentiment-analysis-with-python-part-1-5ce197074184">Sentiment analysis with python - Towardsdatascience</a>
+<br>
+<a href="https://viblo.asia/p/phan-tich-phan-hoi-khach-hang-hieu-qua-voi-machine-learningvietnamese-sentiment-analysis-Eb85opXOK2G">Phan tich phan hoi khach hang - Viblo</a>
+</div>
+
+</footer>
+
+</body>
+</html>
